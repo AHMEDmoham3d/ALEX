@@ -1,5 +1,6 @@
-import { ArrowLeft, Calendar, User, Share2, Facebook, Twitter, Instagram } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Share2, Facebook, Twitter, Instagram, X } from 'lucide-react';
 import { useParams, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 interface Article {
   id: number;
@@ -17,21 +18,15 @@ export default function ArticlePage() {
   const articles: Article[] = [
     {
       id: 1,
-      title: 'فوز ساحق في بطولة الجمهورية',
-      date: '2024-01-10',
+      title: 'اختبار يناير 2026',
+      date: '2026-01-01',
       author: 'إدارة المنطقة',
-      image: 'فوز.jpg',
-      excerpt: 'حقق فريق منطقة الإسكندرية فوزاً كبيراً في بطولة الجمهورية بحصده على 15 ميدالية ذهبية',
+      image: 'اختبار يناير2026.jpeg',
+      excerpt: 'اختبار لشهر يناير 2026',
       content: `
-        <p>حقق فريق منطقة الإسكندرية للكاراتيه فوزاً ساحقاً في بطولة الجمهورية التي أقيمت الأسبوع الماضي في القاهرة. حصل الفريق على 15 ميدالية ذهبية و12 فضية و8 برونزية، محتلاً المركز الأول على مستوى الجمهورية للمرة الخامسة على التوالي.</p>
+        <p>اختبار لشهر يناير 2026</p>
 
-        <p>صرح رئيس المنطقة بأن هذا الفوز يعكس الجهود المبذولة في تطوير رياضة الكاراتيه وإعداد أبطال قادرين على المنافسة على المستوى الدولي. وأضاف أن المنطقة تركز حالياً على الاستعداد للبطولات القادمة من خلال تطوير المواهب الشابة وتحسين المهارات الفنية واللياقة البدنية.</p>
-
-        <p>يُعد هذا الإنجاز دليلاً على أن منطقة الإسكندرية أصبحت من أبرز المناطق في رياضة الكاراتيه على مستوى الجمهورية، وذلك بفضل التدريب المهني والإشراف المتميز من قبل المدربين المحترفين.</p>
-
-        <img src="فوز.jpg" alt="فريق الإسكندرية يحتفل بالفوز" class="w-full rounded-lg my-6" />
-
-        <p>يستمر الفريق في تدريباته المكثفة استعداداً للموسم الرياضي الجديد، مع التركيز على اكتشاف المواهب الجديدة وتطوير اللاعبين الحاليين لتحقيق المزيد من الإنجازات في المستقبل.</p>
+        <img src="اختبار يناير2026.jpeg" alt="اختبار يناير 2026" class="w-full rounded-lg my-6" />
       `
     },
     {
@@ -71,6 +66,40 @@ export default function ArticlePage() {
   ];
 
   const article = articles.find(a => a.id === parseInt(id || '1'));
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string>('');
+
+  const openModal = (src: string) => {
+    setSelectedImage(src);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage('');
+  };
+
+  useEffect(() => {
+    const handleImageClick = (event: Event) => {
+      const target = event.target as HTMLImageElement;
+      if (target.tagName === 'IMG') {
+        event.preventDefault();
+        openModal(target.src);
+      }
+    };
+
+    const contentDiv = document.querySelector('.prose');
+    if (contentDiv) {
+      contentDiv.addEventListener('click', handleImageClick);
+    }
+
+    return () => {
+      if (contentDiv) {
+        contentDiv.removeEventListener('click', handleImageClick);
+      }
+    };
+  }, []);
 
   if (!article) {
     return (
@@ -122,7 +151,8 @@ export default function ArticlePage() {
             <img
               src={article.image}
               alt={article.title}
-              className="w-full h-96 object-cover rounded-lg shadow-lg"
+              className="w-full h-96 object-cover rounded-lg shadow-lg cursor-pointer"
+              onClick={() => openModal(article.image)}
             />
           </div>
 
@@ -159,6 +189,26 @@ export default function ArticlePage() {
           </p>
         </div>
       </footer>
+
+      {/* Image Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={closeModal}>
+          <div className="relative max-w-4xl max-h-full p-4">
+            <button
+              onClick={closeModal}
+              className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Zoomed"
+              className="max-w-full max-h-full object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

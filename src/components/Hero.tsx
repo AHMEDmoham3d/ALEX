@@ -42,9 +42,7 @@ export default function Hero() {
 
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-red-500/20 rounded-full animate-pulse"></div>
-        <div className="absolute top-32 right-20 w-16 h-16 bg-yellow-500/20 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-blue-500/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <img src="/logo.jpeg" alt="Logo" className="absolute top-32 right-20 w-16 h-16 rounded-full object-cover animate-bounce" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
