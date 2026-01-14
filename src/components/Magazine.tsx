@@ -22,7 +22,7 @@ export default function Magazine() {
       title: 'أبناؤنا في الخارج ',
       issue: 'العدد 15',
       date: 'يناير 2024',
-      cover: 'تكريم-الرئيس.jpg',
+      cover: '/تكريم-الرئيس.jpg',
       description: 'في هذا العدد: مقابلة حصرية مع أبطالنا فى الخارج تغطية شاملة للإنجازات',
     },
     {
@@ -38,7 +38,7 @@ export default function Magazine() {
       title: 'الدوريات والمسابقات ',
       issue: 'العدد 13',
       date: 'نوفمبر 2023',
-      cover: 'مسابقات.jpeg',
+      cover: '/مسابقات.jpeg',
       description: 'ملف خاص عن مستقبل الكاراتيه في الإسكندرية، لقاءات مع المدربين، وخطط التطوير',
     },
   ];
