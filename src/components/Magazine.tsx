@@ -1,5 +1,7 @@
 import { BookOpen, Download, Eye } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 interface MagazineIssue {
   id: number;
@@ -69,26 +71,30 @@ export default function Magazine() {
                 <img
                   src={issue.cover}
                   alt={issue.title}
-                  className="w-full h-80 object-cover transition-transform duration-300 hover:scale-110"
+                  className="w-full h-80 object-cover transition-transform duration-300"
                 />
                 <div className="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 rounded-lg font-bold animate-pulse">
                   {issue.issue}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 text-gray-800">
                   {issue.title}
                 </h3>
                 <p className="text-sm text-gray-500 mb-4">{issue.date}</p>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   {issue.description}
                 </p>
+                <Link to={`/article/${issue.id}`} className="text-red-600 hover:text-red-800 font-semibold mb-6 inline-block">
+                  اقرأ المزيد
+                </Link>
                 <div className="flex gap-3">
-                  <button className="flex-1 flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105">
-                    <Eye size={20} />
-                    <span>اقرأ الآن</span>
-                  </button>
+                  <Link to={`/article/${issue.id}`} className="flex-1">
+                    <button className="w-full flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105">
+                      <Eye size={20} />
+                      <span>اقرأ الآن</span>
+                    </button>
+                  </Link>
                   <button className="flex items-center justify-center gap-2 bg-gray-200 text-gray-700 px-4 rounded-lg hover:bg-gray-300 transition-all duration-300 transform hover:scale-105">
                     <Download size={20} />
                   </button>

@@ -21,12 +21,12 @@ export default function ArticlePage() {
       title: 'اختبار يناير 2026',
       date: '2026-01-01',
       author: 'إدارة المنطقة',
-      image: 'اختبار يناير2026.jpeg',
+      image: '/اختبار يناير2026.jpeg',
       excerpt: 'اختبار لشهر يناير 2026',
       content: `
         <p>اختبار لشهر يناير 2026</p>
 
-        <img src="اختبار يناير2026.jpeg" alt="اختبار يناير 2026" class="w-full rounded-lg my-6" />
+        <p>هذا هو المقال الكامل لاختبار يناير 2026. يمكنك قراءة التفاصيل هنا. الاختبار يشمل جميع المستويات والفئات العمرية، ويهدف إلى تقييم مستوى اللاعبين وتحديد المؤهلين للمشاركة في البطولات القادمة. سيتم إجراء الاختبار في قاعة التدريب الرئيسية بمنطقة الإسكندرية للكاراتيه.</p>
       `
     },
     {
@@ -40,8 +40,6 @@ export default function ArticlePage() {
         <p>أقامت منطقة الإسكندرية للكاراتيه حفل تكريم سنوي للأبطال والمتميزين في رياضة الكاراتيه. حضر الحفل 25 لاعباً و5 مدربين محترفين و3 إداريين بارزين، بالإضافة إلى شخصيات رياضية وإعلامية من الإسكندرية.</p>
 
         <p>صرح مدير المنطقة أن هذا التكريم يهدف إلى تقدير الجهود وتحفيز الجميع على تحقيق المزيد من الإنجازات في البطولات القادمة. وأضاف أن منطقة الإسكندرية تسعى دائماً لخلق بيئة مشجعة لتطوير رياضة الكاراتيه وإعداد أجيال جديدة من الأبطال.</p>
-
-        <img src="https://images.pexels.com/photos/7045714/pexels-photo-7045714.jpeg?auto=compress&cs=tinysrgb&w=800" alt="حفل التكريم السنوي" class="w-full rounded-lg my-6" />
 
         <p>تم توزيع الجوائز والدروع التكريمية على المتميزين، مع التركيز على أهمية الاعتراف بالإنجازات وتشجيع الروح الرياضية في المجتمع.</p>
       `
@@ -57,8 +55,6 @@ export default function ArticlePage() {
         <p>أطلقت منطقة الإسكندرية للكاراتيه معسكراً تدريبياً مكثفاً لأكثر من 50 لاعباً ناشئاً، استعداداً للبطولات القادمة والموسم الرياضي الجديد. يشرف على المعسكر مدربون محترفون ذوو خبرة عالية في رياضة الكاراتيه.</p>
 
         <p>يهدف المعسكر إلى تطوير المهارات الفنية وتحسين اللياقة البدنية وتعزيز روح الفريق والانضباط لدى اللاعبين. يتضمن البرنامج تدريبات نظرية وعملية يومية، بالإضافة إلى محاضرات توعوية لدعم نمو اللاعبين الشباب.</p>
-
-        <img src="https://images.pexels.com/photos/7045729/pexels-photo-7045729.jpeg?auto=compress&cs=tinysrgb&w=800" alt="تدريبات المعسكر" class="w-full rounded-lg my-6" />
 
         <p>يستمر المعسكر لمدة أسبوعين، مع التركيز على اكتشاف المواهب الجديدة وإعداد جيل جديد من الأبطال الذين سيمثلون الإسكندرية بكفاءة في البطولات القادمة.</p>
       `
@@ -151,7 +147,7 @@ export default function ArticlePage() {
             <img
               src={article.image}
               alt={article.title}
-              className="w-full h-96 object-cover rounded-lg shadow-lg cursor-pointer"
+              className="w-full h-96 object-contain rounded-lg shadow-lg cursor-pointer"
               onClick={() => openModal(article.image)}
             />
           </div>
@@ -193,17 +189,17 @@ export default function ArticlePage() {
       {/* Image Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50" onClick={closeModal}>
-          <div className="relative max-w-4xl max-h-full p-4">
+          <div className="relative max-w-4xl max-h-full p-4 overflow-auto">
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors"
+              className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors z-10"
             >
               <X size={24} />
             </button>
             <img
               src={selectedImage}
               alt="Zoomed"
-              className="max-w-full max-h-full object-contain"
+              className="max-w-full object-contain"
               onClick={(e) => e.stopPropagation()}
             />
           </div>

@@ -21,8 +21,8 @@ export default function Header({ onNavigate }: HeaderProps) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg animate-pulse">
-              <span className="text-red-800 font-bold text-2xl">AK</span>
+            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+              <img src="/logo.jpeg" alt="Logo" className="w-full h-full rounded-full object-cover" />
             </div>
             <div className="text-right">
               <h1 className="text-xl font-bold">منطقة الإسكندرية للكاراتيه</h1>
