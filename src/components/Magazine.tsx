@@ -1,49 +1,13 @@
 import { BookOpen, Download, Eye } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-
-interface MagazineIssue {
-  id: number;
-  title: string;
-  issue: string;
-  date: string;
-  cover: string;
-  description: string;
-}
+import { magazineIssues } from '../data/magazineData';
 
 export default function Magazine() {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
   });
-
-  const issues: MagazineIssue[] = [
-    {
-      id: 1,
-      title: 'أبناؤنا في الخارج ',
-      issue: 'العدد 15',
-      date: 'يناير 2024',
-      cover: '/تكريم-الرئيس.jpg',
-      description: 'في هذا العدد: مقابلة حصرية مع أبطالنا فى الخارج تغطية شاملة للإنجازات',
-    },
-    {
-      id: 2,
-      title: 'أبناء الصعيد ',
-      issue: 'العدد 14',
-      date: 'ديسمبر 2023',
-      cover: 'ابناء الصعيد.jpg',
-      description: 'تغطية شاملة لبطولة الجمهورية، قصص النجاح، وملف خاص عن تطوير المواهب الشابة بالصعيد ',
-    },
-    {
-      id: 3,
-      title: 'الدوريات والمسابقات ',
-      issue: 'العدد 13',
-      date: 'نوفمبر 2023',
-      cover: '/مسابقات.jpeg',
-      description: 'ملف خاص عن مستقبل الكاراتيه في الإسكندرية، لقاءات مع المدربين، وخطط التطوير',
-    },
-  ];
 
   return (
     <section ref={ref} id="magazine" className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
@@ -61,7 +25,7 @@ export default function Magazine() {
         </div>
 
         <div className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {issues.map((issue, index) => (
+          {magazineIssues.map((issue, index) => (
             <div
               key={issue.id}
               className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105"
@@ -71,12 +35,13 @@ export default function Magazine() {
                 <img
                   src={issue.cover}
                   alt={issue.title}
-                  className="w-full h-80 object-cover transition-transform duration-300"
+                  className="w-full h-80 object-cover"
                 />
-                <div className="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 rounded-lg font-bold animate-pulse">
+                <div className="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 rounded-lg font-bold">
                   {issue.issue}
                 </div>
               </div>
+
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 text-gray-800">
                   {issue.title}
@@ -85,29 +50,29 @@ export default function Magazine() {
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   {issue.description}
                 </p>
-                <Link to={`/article/${issue.id}`} className="text-red-600 hover:text-red-800 font-semibold mb-6 inline-block">
+
+                <Link
+                  to={`/magazine/${issue.id}`}
+                  className="text-red-600 hover:text-red-800 font-semibold mb-6 inline-block"
+                >
                   اقرأ المزيد
                 </Link>
+
                 <div className="flex gap-3">
-                  <Link to={`/article/${issue.id}`} className="flex-1">
-                    <button className="w-full flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-all duration-300 transform hover:scale-105">
+                  <Link to={`/magazine/${issue.id}`} className="flex-1">
+                    <button className="w-full flex items-center justify-center gap-2 bg-red-600 text-white py-3 rounded-lg hover:bg-red-700">
                       <Eye size={20} />
-                      <span>اقرأ الآن</span>
+                      اقرأ الآن
                     </button>
                   </Link>
-                  <button className="flex items-center justify-center gap-2 bg-gray-200 text-gray-700 px-4 rounded-lg hover:bg-gray-300 transition-all duration-300 transform hover:scale-105">
+
+                  <button className="flex items-center justify-center gap-2 bg-gray-200 text-gray-700 px-4 rounded-lg hover:bg-gray-300">
                     <Download size={20} />
                   </button>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className={`text-center mt-12 transition-all duration-1000 delay-500 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <button className="bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl animate-pulse">
-            عرض جميع الأعداد
-          </button>
         </div>
       </div>
     </section>

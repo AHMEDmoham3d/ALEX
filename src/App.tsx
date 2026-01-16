@@ -7,6 +7,7 @@ import Magazine from './components/Magazine';
 import Achievements from './components/Achievements';
 import Footer from './components/Footer';
 import ArticlePage from './components/ArticlePage';
+import MagazineDetails from './components/MagazineDetails';
 
 function App() {
   const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({});
@@ -42,6 +43,7 @@ function App() {
           }
         />
         <Route path="/article/:id" element={<ArticlePage />} />
+        <Route path="/magazine/:id" element={<MagazineDetails />} />
       </Routes>
     </Router>
   );
