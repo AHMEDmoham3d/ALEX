@@ -8,57 +8,8 @@ import { Article, articles } from '../data/articles';
 export default function ArticlePage() {
   const { id } = useParams<{ id: string }>();
 
-<<<<<<< HEAD
   // البحث عن المقال بناءً على المعرّف
-  const article = articles.find((a: Article) => a.id === parseInt(id || '1'));
-=======
-  const articles: Article[] = [
-    {
-      id: 1,
-      title: 'اختبار يناير 2026',
-      date: '2026-01-01',
-      author: 'إدارة المنطقة',
-      image: '/اختبار يناير2026.jpeg',
-      excerpt: 'اختبار لشهر يناير 2026',
-      content: `
-        <p>اختبار لشهر يناير 2026</p>
-
-      `
-    },
-    {
-      id: 2,
-      title: 'تكريم الأبطال في حفل سنوي',
-      date: '2024-01-08',
-      author: 'إدارة المنطقة',
-      image: 'https://images.pexels.com/photos/7045714/pexels-photo-7045714.jpeg?auto=compress&cs=tinysrgb&w=800',
-      excerpt: 'أقامت المنطقة حفل تكريم للاعبين المميزين والمدربين الذين ساهموا في تحقيق الإنجازات',
-      content: `
-        <p>أقامت منطقة الإسكندرية للكاراتيه حفل تكريم سنوي للأبطال والمتميزين في رياضة الكاراتيه. حضر الحفل 25 لاعباً و5 مدربين محترفين و3 إداريين بارزين، بالإضافة إلى شخصيات رياضية وإعلامية من الإسكندرية.</p>
-
-        <p>صرح مدير المنطقة أن هذا التكريم يهدف إلى تقدير الجهود وتحفيز الجميع على تحقيق المزيد من الإنجازات في البطولات القادمة. وأضاف أن منطقة الإسكندرية تسعى دائماً لخلق بيئة مشجعة لتطوير رياضة الكاراتيه وإعداد أجيال جديدة من الأبطال.</p>
-
-        <p>تم توزيع الجوائز والدروع التكريمية على المتميزين، مع التركيز على أهمية الاعتراف بالإنجازات وتشجيع الروح الرياضية في المجتمع.</p>
-      `
-    },
-    {
-      id: 3,
-      title: 'انطلاق معسكر تدريبي للناشئين',
-      date: '2024-01-05',
-      author: 'إدارة المنطقة',
-      image: 'https://images.pexels.com/photos/7045729/pexels-photo-7045729.jpeg?auto=compress&cs=tinysrgb&w=800',
-      excerpt: 'بدأت المنطقة معسكراً تدريبياً مكثفاً للناشئين استعداداً للبطولات القادمة',
-      content: `
-        <p>أطلقت منطقة الإسكندرية للكاراتيه معسكراً تدريبياً مكثفاً لأكثر من 50 لاعباً ناشئاً، استعداداً للبطولات القادمة والموسم الرياضي الجديد. يشرف على المعسكر مدربون محترفون ذوو خبرة عالية في رياضة الكاراتيه.</p>
-
-        <p>يهدف المعسكر إلى تطوير المهارات الفنية وتحسين اللياقة البدنية وتعزيز روح الفريق والانضباط لدى اللاعبين. يتضمن البرنامج تدريبات نظرية وعملية يومية، بالإضافة إلى محاضرات توعوية لدعم نمو اللاعبين الشباب.</p>
-
-        <p>يستمر المعسكر لمدة أسبوعين، مع التركيز على اكتشاف المواهب الجديدة وإعداد جيل جديد من الأبطال الذين سيمثلون الإسكندرية بكفاءة في البطولات القادمة.</p>
-      `
-    }
-  ];
-
-  const article = articles.find(a => a.id === parseInt(id || '1'));
->>>>>>> e5ad4097d968f8b9612809eb1fe5fb0c28959ffe
+  const article = articles.find((a: Article) => a.id === parseInt(id || '1'))!;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string>('');
@@ -149,18 +100,7 @@ export default function ArticlePage() {
     };
   }, []);
 
-  if (!article) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center" dir="rtl">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">المقال غير موجود</h1>
-          <Link to="/" className="text-red-600 hover:text-red-700 font-semibold">
-            العودة للرئيسية
-          </Link>
-        </div>
-      </div>
-    );
-  }
+
 
   return (
     <div className="min-h-screen bg-gray-50" dir="rtl">

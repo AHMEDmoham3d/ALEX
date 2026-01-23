@@ -9,36 +9,6 @@ export default function Magazine() {
     triggerOnce: true,
   });
 
-<<<<<<< HEAD
-=======
-  const issues: MagazineIssue[] = [
-    {
-      id: 1,
-      title: 'زيارة نادي سموحة',
-      issue: 'العدد 15',
-      date: 'يناير 2024',
-      cover: '/تكريم-الرئيس.jpg',
-      description: 'فيديو خاص بالزيارة لنادي سموحة',
-    },
-    {
-      id: 2,
-      title: 'زيارة نادي سموحة',
-      issue: 'العدد 14',
-      date: 'ديسمبر 2023',
-      cover: '/تكريم-الرئيس.jpg',
-      description: 'فيديو خاص بالزيارة لنادي سموحة https://www.facebook.com/share/v/1Dx7AAxAxz',
-    },
-    {
-      id: 3,
-      title: 'الدوريات والمسابقات ',
-      issue: 'العدد 13',
-      date: 'نوفمبر 2023',
-      cover: '/مسابقات.jpeg',
-      description: 'ملف خاص عن مستقبل الكاراتيه في الإسكندرية، لقاءات مع المدربين، وخطط التطوير',
-    },
-  ];
-
->>>>>>> e5ad4097d968f8b9612809eb1fe5fb0c28959ffe
   return (
     <section ref={ref} id="magazine" className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
       <div className="container mx-auto px-4">
