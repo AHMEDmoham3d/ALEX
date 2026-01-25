@@ -35,6 +35,9 @@ function App() {
               <div ref={(el) => (sectionsRef.current['magazine'] = el)}>
                 <Magazine />
               </div>
+              <div ref={(el) => (sectionsRef.current['board'] = el)}>
+                <BoardOfDirectors />
+              </div>
               <div ref={(el) => (sectionsRef.current['achievements'] = el)}>
                 <Achievements />
               </div>

@@ -48,6 +48,21 @@ export default function MagazineDetails() {
             <p className="text-lg text-gray-700 leading-relaxed">
               {issue.description}
             </p>
+
+            {issue.id === 2 && (
+              <div className="mt-8">
+                <h2 className="text-2xl font-bold text-gray-800 mb-4">صور الدوري العالمي بتركيا</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <img src="/لدوري العالمي بتركيا1.jpeg" alt="لدوري العالمي بتركيا 1" className="w-full h-48 object-cover rounded-lg shadow-md" />
+                  <img src="/لدوري العالمي بتركيا2.jpeg" alt="لدوري العالمي بتركيا 2" className="w-full h-48 object-cover rounded-lg shadow-md" />
+                  <img src="/لدوري العالمي بتركيا3.jpeg" alt="لدوري العالمي بتركيا 3" className="w-full h-48 object-cover rounded-lg shadow-md" />
+                  <img src="/لدوري العالمي بتركيا4.jpeg" alt="لدوري العالمي بتركيا 4" className="w-full h-48 object-cover rounded-lg shadow-md" />
+                  <img src="/لدوري العالمي بتركيا5.jpeg" alt="لدوري العالمي بتركيا 5" className="w-full h-48 object-cover rounded-lg shadow-md" />
+                  <img src="/لدوري العالمي بتركيا6.jpeg" alt="لدوري العالمي بتركيا 6" className="w-full h-48 object-cover rounded-lg shadow-md" />
+                  <img src="/لدوري العالمي بتركيا7.jpeg" alt="لدوري العالمي بتركيا 7" className="w-full h-48 object-cover rounded-lg shadow-md" />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

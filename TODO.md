@@ -1,7 +1,7 @@
-# TODO for ArticlePage Image Modal Enhancements
+# TODO List for Adding Board of Directors Section
 
-- [x] Add zoom state variables (zoom level, pan position)
-- [x] Add mouse event handlers for zooming (wheel) and panning (drag)
-- [x] Update modal JSX to apply zoom and pan transforms
-- [x] Add zoom controls (zoom in/out buttons)
-- [x] Ensure modal is responsive and handles touch events for mobile
+- [x] Create BoardOfDirectors.tsx component with professional animations
+- [x] Add BoardOfDirectors import to App.tsx
+- [x] Insert BoardOfDirectors section after Magazine section in App.tsx
+- [x] Add navigation link for Board of Directors in Footer.tsx
+- [x] Verify images are correctly referenced: كابتن زمزم.png, كابتن عادل.png, كابتن كامل.jpeg

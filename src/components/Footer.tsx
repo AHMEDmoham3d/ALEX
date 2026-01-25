@@ -26,6 +26,7 @@ export default function Footer() {
               <li><a href="#home" className="text-gray-400 hover:text-white transition-colors">الرئيسية</a></li>
               <li><a href="#news" className="text-gray-400 hover:text-white transition-colors">الأخبار</a></li>
               <li><a href="#magazine" className="text-gray-400 hover:text-white transition-colors">المجلة الرياضية</a></li>
+              <li><a href="#board" className="text-gray-400 hover:text-white transition-colors">مجلس الإدارة</a></li>
               <li><a href="#achievements" className="text-gray-400 hover:text-white transition-colors">الإنجازات</a></li>
             </ul>
           </div>
