@@ -1,7 +1,3 @@
-# TODO List for Adding Board of Directors Section
+# TODO List for Adding New Directors
 
-- [x] Create BoardOfDirectors.tsx component with professional animations
-- [x] Add BoardOfDirectors import to App.tsx
-- [x] Insert BoardOfDirectors section after Magazine section in App.tsx
-- [x] Add navigation link for Board of Directors in Footer.tsx
-- [x] Verify images are correctly referenced: كابتن زمزم.png, كابتن عادل.png, كابتن كامل.jpeg
+- [x] Add ياسين فرحات and حازم احمد زياد الغريب to the BoardOfDirectors component, arranging them interspersed with existing directors to ensure they are together but not adjacent.

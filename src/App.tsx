@@ -8,6 +8,7 @@ import Achievements from './components/Achievements';
 import Footer from './components/Footer';
 import ArticlePage from './components/ArticlePage';
 import MagazineDetails from './components/MagazineDetails';
+import BoardOfDirectors from './components/BoardOfDirectors';
 
 function App() {
   const sectionsRef = useRef<{ [key: string]: HTMLElement | null }>({});
