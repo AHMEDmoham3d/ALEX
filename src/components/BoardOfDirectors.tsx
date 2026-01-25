@@ -53,16 +53,11 @@ export default function BoardOfDirectors() {
           </p>
         </div>
 
-        <div className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`grid md:grid-cols-3 gap-8 transition-all duration-500 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {directors.map((director, index) => (
             <div
               key={index}
-              className="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-4 hover:scale-110 group-hover:rotate-y-12 group cursor-pointer"
-              style={{
-                animationDelay: `${index * 200}ms`,
-                perspective: '1000px',
-                transformStyle: 'preserve-3d'
-              }}
+              className="relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
               onMouseEnter={() => setHoveredDirector(index)}
               onMouseLeave={() => setHoveredDirector(null)}
             >
@@ -70,27 +65,20 @@ export default function BoardOfDirectors() {
                 <img
                   src={director.image}
                   alt={director.name}
-                  className="w-full h-full object-contain transition-all duration-1000 group-hover:brightness-110"
+                  className="w-full h-full object-contain transition-all duration-500 group-hover:brightness-110"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-                {/* Floating particles animation */}
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping opacity-0 group-hover:opacity-100" style={{ animationDelay: '0.2s' }}></div>
-                  <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-yellow-400 rounded-full animate-ping opacity-0 group-hover:opacity-100" style={{ animationDelay: '0.5s' }}></div>
-                  <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-red-400 rounded-full animate-ping opacity-0 group-hover:opacity-100" style={{ animationDelay: '0.8s' }}></div>
-                  <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-green-400 rounded-full animate-ping opacity-0 group-hover:opacity-100" style={{ animationDelay: '1.1s' }}></div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
-              <div className={`p-6 text-center bg-gradient-to-r from-blue-50 to-indigo-50 transition-all duration-700 ${hoveredDirector === index ? 'h-auto' : 'h-20'}`}>
+              <div className={`p-6 text-center bg-gradient-to-r from-blue-50 to-indigo-50 transition-all duration-300 ${hoveredDirector === index ? 'h-auto' : 'h-20'}`}>
                 {hoveredDirector === index ? (
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800">
                       {director.name}
                     </h3>
                     <p className="text-lg font-semibold text-yellow-400">{director.position}</p>
-                    <div className="space-y-2 text-sm">
+                    <div className="space-y-1 text-sm">
                       <p><span className="font-semibold text-green-400">الخبرة:</span> {director.experience}</p>
                       <p><span className="font-semibold text-purple-400">الإنجازات:</span> {director.achievements}</p>
                       <p className="leading-relaxed text-xs">{director.bio}</p>
@@ -98,20 +86,15 @@ export default function BoardOfDirectors() {
                   </div>
                 ) : (
                   <>
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800">
                       {director.name}
                     </h3>
-                    <p className="text-gray-600 group-hover:text-indigo-600 transition-colors duration-300">
+                    <p className="text-gray-600">
                       {director.position}
                     </p>
                   </>
                 )}
               </div>
-
-              {/* Glow effect */}
-              <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-400/20 to-indigo-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-              {/* Glowing border */}
-              <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-blue-400 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all duration-700 pointer-events-none"></div>
             </div>
           ))}
         </div>
