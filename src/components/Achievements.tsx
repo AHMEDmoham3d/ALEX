@@ -96,7 +96,10 @@ export default function Achievements() {
           <p className="text-lg mb-6 text-red-100">
             كن جزءاً من قصة النجاح وحقق أحلامك الرياضية معنا
           </p>
-          <button className="bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl animate-pulse">
+          <button
+            onClick={() => window.open('https://manteka-alex-main.vercel.app/', '_blank')}
+            className="bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl animate-pulse"
+          >
             سجل الآن
           </button>
         </div>

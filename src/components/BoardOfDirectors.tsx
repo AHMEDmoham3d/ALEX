@@ -34,17 +34,20 @@ export default function BoardOfDirectors() {
       achievements: 'خبير في إدارة الميزانيات الرياضية، منظم مالي معتمد',
       bio: 'مسؤول عن الشؤون المالية والإدارية للمنطقة بكفاءة عالية.'
     },
+    {
+      name: 'مؤمن',
+      image: '/مؤمن.png',
+      position: 'عضو مجلس إدارة',
+      experience: 'خبرة في الرياضة',
+      achievements: 'إنجازات متنوعة',
+      bio: 'سيرة ذاتية قصيرة'
+    },
   ];
 
   return (
     <section ref={ref} id="board" className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className={`text-center mb-12 transition-all duration-1000 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex justify-center items-center gap-3 mb-4">
-            <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center animate-pulse">
-              <span className="text-white font-bold text-xl">BD</span>
-            </div>
-          </div>
           <h2 className="text-4xl font-bold mb-4 text-gray-800">
             مجلس الإدارة
           </h2>
@@ -53,7 +56,7 @@ export default function BoardOfDirectors() {
           </p>
         </div>
 
-        <div className={`grid md:grid-cols-3 gap-8 transition-all duration-500 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-500 delay-300 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           {directors.map((director, index) => (
             <div
               key={index}
